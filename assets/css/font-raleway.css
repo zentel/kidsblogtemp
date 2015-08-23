@@ -1,0 +1,20 @@
+h1, h2, h3,
+h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight:600;
+}
+
+.sez-right-post, .sez-right-line {
+	padding-top: 5px;
+}
+
+/* Post data */
+.date-post {
+    font-family: 'Raleway', sans-serif;
+    font-weight:500;
+}
+
+.date-post .day{
+  font-weight:600;
+}
+

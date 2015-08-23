@@ -1,0 +1,1814 @@
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+/*
+
+    0.  Includes
+    1.  Icons
+    2.  General
+    3.  Utilities
+    4.  Header
+    5.  General Post
+    6.  Third Party Elements
+    7.  Single Post
+    7.2 Page author
+    8.  Pagination
+    9.  Footer
+    10. Media Queries (Tablet)
+    11. Media Queries (Mobile)
+    12. Animation
+
+ */
+
+/* ==========================================================================
+   0. Includes - Ground zero
+   ========================================================================== */
+
+@import url(normalize.css);
+
+
+/* ==========================================================================
+   1. Icons - Sets up the icon position in the background
+   ========================================================================== */
+
+.ico-w-facebook{
+    background-position:0;
+}
+
+.ico-w-twitter{
+    background-position:-30px 0;
+}
+
+.ico-w-instagram{
+    background-position:-60px 0;
+}
+
+.ico-w-gplus{
+    background-position:-90px 0;
+}
+
+.ico-w-linkedin{
+    background-position:-120px 0;
+}
+
+.ico-w-youtube{
+    background-position:-150px 0;
+}
+
+.ico-w-pinterest{
+    background-position:-180px 0;
+}
+
+.ico-w-behance{
+    background-position:-210px 0;
+}
+
+.ico-w-dribbble{
+    background-position:-240px 0;
+}
+
+.ico-w-flickr {
+    background-position:-270px 0;
+}
+
+.ico-w-github {
+    background-position:-300px 0;
+}
+
+
+
+
+/* ==========================================================================
+   2. General - Setting up some base styles
+   ========================================================================== */
+
+html {
+    height: 100%;
+    max-height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100%;
+    max-height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:300;
+    color: #666;
+    margin:0;
+    padding:0;
+    font-size:1.3rem;
+}
+
+::-moz-selection {
+    color: #666;
+    background: #e1e1e1;
+    text-shadow: none;
+}
+
+::selection {
+    color: #666;
+    background: #e1e1e1;
+    text-shadow: none;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+    line-height: 1;
+    margin-top: 0;
+    font-family: 'Oswald', sans-serif;
+    font-weight:400;
+    text-transform: uppercase;
+    color:#555;
+    margin: 1.2em 0 0 0;
+}
+
+h1 {
+    font-size: 4.5rem;
+    line-height: 1.1em;
+    margin-bottom:30px;
+}
+
+h2 {
+    font-size: 4rem;
+    line-height: 1.1em;
+
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-size: 2.5rem;
+}
+
+h6 {
+    font-size: 2rem;
+}
+
+a {
+    color: #666;
+    transition: all ease 0.3s;
+    text-decoration:none
+}
+
+a:hover {
+    color: #B0B0B0;
+}
+
+h1 a, h2 a, h3 a,
+h4 a, h5 a, h6 a {
+    color:#555;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover,
+h4 a:hover, h5 a:hover, h6 a:hover {
+    color:#666;
+}
+
+p, ul, ol, dl {
+    margin: 1.6em 0;
+}
+
+ol ol, ul ul,
+ul ol, ol ul {
+    margin: 0.4em 0;
+}
+
+dl dt {
+    float: left;
+    width: 180px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    margin-bottom: 1em
+}
+
+dl dd {
+    margin-left: 200px;
+    margin-bottom: 1em
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    background-color: #e1e1e1;
+    margin: 2em 0;
+    padding: 0;
+}
+
+blockquote {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0 1.6em 0;
+    padding: 0 0 0 1.6em;
+    border-left: #4a4a4a 0.4em solid;
+}
+
+blockquote p {
+    margin: 0.8em 0;
+    font-style: italic;
+}
+
+blockquote small {
+    display: inline-block;
+    margin: 0.8em 0 0.8em 1.5em;
+    font-size:0.9em;
+    color: #ccc;
+}
+
+blockquote small:before { content: '\2014 \00A0'; }
+
+blockquote cite {
+    font-weight:bold;
+}
+
+blockquote cite a { font-weight: normal; }
+
+mark {
+    background-color: #ffc336;
+}
+
+code, tt {
+    padding: 1px 3px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.85em;
+    white-space: pre-wrap;
+    border: 1px solid #e1e1e1;
+    background: #fafafa;
+    border-radius: 2px;
+}
+
+pre {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0;
+    border: 1px solid #e1e1e1;
+    width: 100%;
+    padding: 10px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.9em;
+    white-space: pre;
+    overflow: auto;
+    background: #fafafa;
+    border-radius: 3px;
+}
+
+pre code, tt {
+    font-size: inherit;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+kbd {
+    display: inline-block;
+    margin-bottom: 0.4em;
+    padding: 1px 8px;
+    border: #ccc 1px solid;
+    color: #666;
+    text-shadow: #fff 0 1px 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    background: #f4f4f4;
+    border-radius: 4px;
+    box-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.2),
+        0 1px 0 0 #fff inset;
+}
+
+input{
+    padding:8px 10px;
+    background-color:#fff;
+    box-shadow:none;
+    border:1px solid #e1e1e1;
+    transition: all ease 0.3s;
+}
+
+input:hover, input:focus, button:focus{
+    outline: none;
+    border:1px solid #555;
+}
+
+table {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0;
+    width:100%;
+    max-width: 100%;
+    background-color: transparent;
+}
+
+table th,
+table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #e1e1e1;
+}
+
+table th { color: #000; }
+
+table caption + thead tr:first-child th,
+table caption + thead tr:first-child td,
+table colgroup + thead tr:first-child th,
+table colgroup + thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+    border-top: 0;
+}
+
+table tbody + tbody { border-top: 2px solid #e1e1e1; }
+
+table table table { background-color: #fff; }
+
+table tbody > tr:nth-child(odd) > td,
+table tbody > tr:nth-child(odd) > th {
+    background-color: #f6f6f6;
+}
+
+table.plain tbody > tr:nth-child(odd) > td,
+table.plain tbody > tr:nth-child(odd) > th {
+   background: transparent;
+}
+
+iframe, .fluid-width-video-wrapper {
+    display: block;
+    margin: 1.6em 0;
+}
+
+/* When a video is inside the fitvids wrapper, drop the
+margin on the iframe, cause it breaks stuff. */
+.fluid-width-video-wrapper iframe {
+    margin: 0;
+}
+
+/* select / found */
+span.found {
+background-color: #EFEFEF;
+}
+
+
+/* ==========================================================================
+   3. Utilities - These things get used a lot
+   ========================================================================== */
+
+#search-form{
+    position:relative
+}
+
+span.searched-term{
+    background: url(../images/searched-term.png) no-repeat center center;
+    background-size: 100%;
+    height: 30px;
+    width: 30px;
+    position:absolute;
+    right:0;
+    cursor:pointer;
+}
+
+/* Text found */
+span.found {
+    background-color: #e1e1e1;
+}
+
+/* Hides stuff */
+.hidden {
+    text-indent: -9999px;
+    visibility: hidden;
+    display: none;
+}
+
+/* Creates a responsive wrapper that makes our content scale nicely */
+.inner {
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Centres vertically yo. (IE8+) */
+.vertical {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* Conteiner and Section general*/
+.general-cont{
+    max-width:880px;
+    margin:0 auto;
+    padding:0;
+    position:relative;
+}
+
+/* Section left general*/
+.sez-left{
+    float:left;
+    width:90px;
+    text-align:center;
+    height:100%
+}
+
+/* Section right general*/
+.sez-right{
+    float:left;
+    padding-left:30px;
+    width:759px;
+    height:100%;
+    background-color:#fff
+}
+
+.sez-right-post, .sez-right-line{
+    -moz-box-shadow: inset #e1e1e1 1px 0 0 0;
+    -webkit-box-shadow: inset #e1e1e1 1px 0 0 0;
+    box-shadow: inset #e1e1e1 1px 0 0 0;
+    padding-top:12px;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   4. Header - The main styles for the the theme
+   ========================================================================== */
+
+
+/* Big cover image on the home page */
+.site-head{
+    background-size:100%;
+    background-attachment: fixed;
+    height:400px;
+    position: relative;
+    display: table;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color:#999;
+}
+
+
+/* The details of your blog. Defined in ghost/settings/ */
+.blog-title {
+    margin: 10px 0 10px 0;
+    font-size: 4.4rem;
+    letter-spacing: -1px;
+    color:#fff;
+}
+
+.blog-description {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.5em;
+    letter-spacing: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.head-social{
+    margin-top:10px;
+}
+
+.head-social a{
+    width:30px;
+    height:30px;
+    display:inline-block;
+    margin:0 3px;
+    background-image:url(../images/social-white.png);
+    opacity:0.7;
+    background-size:330px 30px;
+}
+
+.head-social a:hover {
+    background-image:url(../images/social-color.png);
+    opacity:1;
+    background-size:330px 30px;
+}
+
+
+/* Main Menu - The main menu */
+header.top-main{
+    border-bottom: 1px solid #e1e1e1;
+}
+
+
+main.site-main{
+    position:relative;
+    z-index: 9999;
+    min-height:40px;
+    overflow:hidden;
+    width:100%;
+}
+
+/* Logo */
+.blog-logo {
+    text-decoration: none;
+    padding:10px 0;
+    display:block
+}
+
+/* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
+.blog-logo img {
+    display: block;
+    max-height: 20px;
+    margin: 0 auto;
+    line-height: 0;
+}
+
+/* Btn-select tag */
+.btn-select{
+    float:left;
+    padding:12px 0 12px 25px;
+    display: block;
+    background:url(../images/ico-menu.png) no-repeat 0 50%;
+    background-size:14px;
+    font-size:1.3rem;
+    line-height:1.3em;
+}
+
+/* Top-nav, the main menu */
+nav.top-nav{
+    float:right;
+}
+
+nav.top-nav ul{
+    list-style-type:none;
+    float:right;
+    margin:0;
+    padding:0
+}
+
+nav.top-nav ul li{
+    float:left;
+    margin:0;
+    overflow:hidden;
+}
+
+nav.top-nav ul li a{
+    font-weight:200;
+    font-size:1.3rem;
+    line-height:1.3em;
+    padding:12px;
+    text-decoration:none;
+    display:block;
+}
+
+/* Menu list tag */
+ul.menu-list-tag{
+    list-style-type:none;
+    width:100%;
+    margin:0;
+    padding:0 0 0 15px;
+    position:relative;
+    overflow:hidden;
+    border-top:1px solid #e1e1e1;
+}
+
+ul.menu-list-tag li{
+    float:left;
+    padding:5px 5px 5px 0 ;
+
+}
+
+ul.menu-list-tag li a, ul.menu-list-tag li span{
+    text-decoration:none;
+    padding:5px 10px;
+    font-size:1.3rem;
+    line-height:1.1em;
+    display:block;
+}
+
+/* Search */
+.cont-search{
+    overflow:hidden;
+    border-top:1px solid #e1e1e1;
+    padding:7px 0;
+}
+
+.submit-search{
+    background:url(../images/ico-search.png) no-repeat 68% 50%;
+    background-size:30px;
+    border:0;
+    border-right:1px solid #e1e1e1 !important;
+    float:right;
+    margin:0;
+    height:30px;
+    width:100%;
+}
+
+.search{
+    border:0;
+    background-color:#fff;
+    font-size:2rem;
+    font-weight:300;
+    color: #666;
+    float:left;
+    width:100%;
+    margin: 0;
+    padding:0
+}
+.search:hover, .search:focus, button:hover, button:focus, button:active{border:0}
+
+.search::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #e8e8e8;
+}
+
+.search:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #e8e8e8;
+}
+
+.search::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #e8e8e8;
+}
+
+.search:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #e8e8e8;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   5. General Post - The general styles for the theme
+   ========================================================================== */
+
+/* Container post article*/
+.cont-post-article{
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid #e1e1e1;
+}
+
+.cont-post-article:last-child{
+    border:0
+}
+
+/* Every post, on every page, gets this style on its <article> tag */
+.post {
+    position: relative;
+    max-width: 880px;
+    margin: 8rem auto;
+    word-break: break-word;
+    hyphens: auto;
+    overflow:hidden;
+}
+
+/* Post data */
+.date-post {
+    font-family: 'Oswald', sans-serif;
+    font-weight:300;
+    color:#555;
+    float: right;
+    background:#fff;
+    width:70px;
+    padding:10px 0;
+}
+
+.date-post .month{
+  font-size:2.2rem;
+  display:block;
+}
+
+.date-post .day{
+  font-size:3.7rem;
+  font-weight:400;
+  display:block;
+  margin-top:-8px;
+}
+
+.date-post .year{
+  font-size:1.7rem;
+  display:block;
+  margin-top:-3px
+}
+
+/* Post image */
+.post-image{
+    position:absolute;
+    width:500px;
+    height:100%;
+    background-size:auto;
+    background-position:center left;
+    margin-left: -850px;
+    top: 0;
+    left: 50%;
+    opacity:0.6;
+    transition: all ease 0.3s;
+    /*display:none;*/
+}
+
+.cont-post-article:hover >.post-image{
+    opacity:1;
+}
+
+
+
+/* Post text */
+.post-meta {
+    display: inline-block;
+    font-size: 1.1rem;
+    color:#666;
+}
+
+.post-author{
+    display: inline-block;
+    margin-top:10px;
+}
+
+.post-title {
+    margin:0;
+    margin-top:8px;
+}
+
+.post-title a {
+    text-decoration: none;
+}
+
+.post-excerpt p {
+    margin: 1.6rem 0 0 0;
+    font-size: 1.4rem;
+    line-height: 1.6em;
+}
+
+.post-info{
+  margin-top:25px;
+}
+
+.post-info-more{
+    border: 1px solid #666;
+    padding: 8px 30px;
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    line-height: 1.3em;
+}
+
+.post-info-more:hover{
+    border: 1px solid #555;
+    background-color:#555;
+    color:#fff
+}
+
+.post-info-comment{
+    background: url(../images/ico-comment.png) center left no-repeat;
+    background-size:14px;
+    padding: 0 0 0 18px;
+    font-size: 1.2rem;
+    line-height: 1.6em;
+    margin-left:10px
+}
+
+.featured .ico-featured {
+    display: block;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background-image: url(../images/ico-featured.png);
+    background-size:22px;
+    width: 22px;
+    height: 22px;
+}
+
+
+.hidden-tag-list{
+    display: none;
+}
+
+
+
+
+/* ==========================================================================
+   6. Third Party Elements - Embeds from other services
+   ========================================================================== */
+
+/* Github */
+.gist table {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.gist .line-number {
+    min-width: 25px;
+    font-size: 1.1rem;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   7. Single Post - When you click on an individual post
+   ========================================================================== */
+
+.site-head-post{
+    background-size:100%;
+    background-attachment: fixed;
+    height:280px;
+    position: relative;
+    display: table;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color:#999;
+}
+
+.post-template .post {
+    margin: 50px auto;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.single-post-content{
+    width:100%;
+    margin: 0;
+    margin-top:20px;
+    font-size: 1.4rem;
+    line-height: 1.6em;
+    display:inline-block;
+}
+
+.single-post-content p{
+    font-size: 1.4rem;
+    line-height: 1.9em;
+    margin:20px 0;
+}
+
+.single-post-content a{
+    text-decoration:underline;
+}
+
+.single-post-content p:first-child {
+    margin-top: 0px;
+}
+
+.single-post-content p:first-child img{
+    margin-top: 0px;
+}
+
+/* Keep large images within the bounds of the post-width */
+.single-post-content img{
+    display: block;
+    width: 100%;
+    margin: 30px auto;
+}
+
+
+/* Related post*/
+.tit-related{
+    font-size:1.6rem;
+    margin:0;
+    margin-left:90px;
+}
+
+.post-related {
+    border-top:1px solid #e1e1e1;
+    border-bottom:1px solid #e1e1e1;
+}
+
+
+
+.post-related:last-child{
+    border:0
+}
+.post-related article{
+    margin: 3rem auto;
+
+}
+
+.post-related .post-image{
+    opacity:0.4;
+}
+
+.post-related:hover .post-image{
+    opacity:1
+}
+
+
+/* The author credit area after the post */
+
+.user-image {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin: -20px 20px 0 0 ;
+    text-align: center;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 5px solid #e1e1e1;
+    background: #e1e1e1;
+    z-index: 2;
+}
+
+.user-image .img {
+    display: block;
+    width: 110px;
+    height: 110px;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 100%;
+    background-image:url(../images/place-autor.jpg)
+}
+
+.info-author{
+    min-width:280px
+}
+
+.post-footer {
+    position: relative;
+    display:inline-block;
+    margin: 4rem 0 0 0;
+    padding: 4rem 0;
+    min-height: 70px;
+}
+
+.post-footer h4 {
+    font-size: 1.8rem;
+    color:#737180;
+    margin: 0;
+}
+
+.post-footer p {
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    line-height: 1.6em;
+    min-height:50px;
+}
+
+/* Create some space to the right for the share links */
+.post-footer .author {
+    margin-right: 180px;
+}
+
+
+/* Drop the share links in the space to the right.
+   Doing it like this means it's easier for the author bio
+   to be flexible at smaller screen sizes while the share
+   links remain at a fixed width the whole time */
+.post-footer .share {
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    width: 140px;
+}
+
+.post-footer .share a {
+    width:30px;
+    height:30px;
+    display: inline-block;
+    margin: 1.4rem .6rem 1.6rem 0;
+    background-image: url(../images/ico-social-share.png);
+    background-size: 90px 30px;
+    width:30px;
+    height:30px;
+}
+
+.post-footer .share a:hover {
+    background-image: url(../images/ico-social-share-over.png);
+}
+
+.post-footer-page {
+    position: relative;
+    width:100%;
+}
+
+.post-footer.post-footer-page .share {
+    left:0;
+}
+
+
+/* Apply these base styles to all share icons */
+.icon-twitter {
+    background-position:-30px 0;
+}
+
+.icon-facebook {
+    background-position: 0 0;
+}
+
+.icon-google-plus {
+    background-position:-60px 0;
+}
+
+
+/* Related post */
+.related {
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+    padding: 30px 0;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+
+.related h2{
+    margin:0 0 0 90px;
+}
+
+/* Back all post */
+.back-post{
+    position: relative;
+    max-width: 880px;
+    margin: 5rem auto 5rem auto;
+    text-align: center;
+}
+
+.back-post a {
+    font-size: 1.3rem;
+    line-height: 1.3em;
+    color: #737180;
+    border: 1px solid rgba(115, 113, 128, 0.3);
+    padding: 5px 60px;
+    text-decoration: none;
+}
+
+.back-post a:hover {
+    background-color:#737180;
+    color:#fff;
+}
+
+/* ==========================================================================
+   7.2 Page author
+   ========================================================================== */
+
+
+.page-author {
+   position: relative;
+    max-width: 880px;
+    margin: 4rem auto;
+    word-break: break-word;
+    hyphens: auto;
+    overflow: hidden;
+
+}
+
+.page-author h1{
+    margin-bottom:15px;
+}
+.page-author .author-social{
+    margin:2rem 0;
+}
+.page-author .user-image{
+    margin-top:10px;
+}
+
+.page-author .info-author{
+    float:left;
+    width:740px;
+}
+
+.page-author .author-social a {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: 0 3px;
+    background-image: url(../images/social-grey.png);
+    opacity: 0.9;
+    background-size: 330px 30px;
+}
+
+
+.page-author .author-social a:hover {
+    background-image:url(../images/social-color.png);
+    opacity:1;
+    background-size:330px 30px;
+}
+
+/* ==========================================================================
+   7.3 Error Page
+   ========================================================================== */
+.blog-code-error {
+    margin: 0;
+    font-size: 9rem;
+    line-height: 1em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+a.blog-beck-error{
+    background-color:#555;
+    padding: 8px 30px;
+    color: #f1f1f1;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    line-height: 1.3em;
+}
+a.blog-beck-error:hover{
+    color:#fff;
+}
+
+
+/* ==========================================================================
+   8. Pagination - Tools to let you flick between pages
+   ========================================================================== */
+
+/* The main wrapper for our pagination links */
+.pagination {
+    max-width:880px;
+    margin:0 auto;
+    position:relative;
+    padding:30px 0 80px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    overflow:hidden;
+}
+
+.pagination a {
+    font-size: 1.3rem;
+    line-height: 1.3em;
+    color: #666;
+    border: 1px solid #666;
+    padding: 8px 30px;
+    text-decoration: none;
+    float:left;
+    margin-left:90px;
+}
+
+.pagination a:hover{
+    border: 1px solid #555;
+    background-color:#555;
+    color:#fff
+}
+
+
+
+
+
+
+/* ==========================================================================
+   9. Footer - The bottom of every page
+   ========================================================================== */
+
+.site-footer {
+    position: relative;
+    padding: 4rem 0;
+    border-top: #e1e1e1 1px solid;
+    font-size: 1.2rem;
+    line-height: 1.7em;
+    color: #666;
+    margin-top:80px;
+}
+
+
+.site-footer .general-cont{
+    overflow:hidden;
+}
+
+.site-footer a {
+    color: #666;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: #50585D;
+}
+
+.copyright{
+    margin-top:20px;
+    display:inline-block;
+}
+
+.poweredby .icon-ghost {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.poweredby .icon-ghost:hover {
+    text-decoration: none;
+}
+
+.poweredby .icon-ghost:before {
+    font-size: 1rem;
+    margin-right: 0.2em;
+}
+
+/* The subscribe icon on the footer */
+.subscribe {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    margin-left: -410px;
+    border: #e1e1e1 2px solid;
+    text-align: center;
+    line-height: 2.4rem;
+    border-radius: 50px;
+    background: #fff;
+    transition: box-shadow 0.5s;
+    background-image:url(../images/ico-rss.png)
+}
+
+/* The RSS icon, inserted via icon font */
+.subscribe:before {
+    font-size: 10px;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    font-weight: bold;
+    transition: color 0.5s ease;
+}
+
+/* Add a box shadow to on hover */
+.subscribe:hover {
+    box-shadow: 0 0 0 3px #e1e1e1;
+    transition: box-shadow 0.25s;
+}
+
+.subscribe:hover:before {
+    color: #50585D;
+}
+
+/* CSS tooltip saying "Subscribe!" - initially hidden */
+.tooltip {
+    opacity:0;
+    display: inline-block;
+    padding: 4px 8px 5px 8px;
+    position:absolute;
+    top: -23px;
+    left: -21px;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1em;
+    text-align: center;
+    background: #555;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+/* The little chiclet arrow under the tooltip, pointing down */
+.tooltip:after {
+    content:"";
+    border-width:5px 5px 0 5px;
+    border-style:solid;
+    border-color: #50585D transparent;
+    display:block;
+    position:absolute;
+    bottom:-4px;
+    left:50%;
+    margin-left:-5px;
+    z-index: 220;
+    width:0;
+}
+
+/* On hover, show the tooltip! */
+.subscribe:hover .tooltip {
+    opacity: 1;
+    top: -33px;
+}
+
+/* Social footer*/
+.footer-social{
+    float:left;
+    width: 100%;
+    margin-top:7px
+}
+
+.footer-social a{
+    width:30px;
+    height:30px;
+    display:inline-block;
+    margin:0 3px;
+    background-image:url(../images/social-grey.png);
+    opacity:0.9;
+    background-size:330px 30px;
+}
+
+.footer-social a:hover {
+    background-image:url(../images/social-color.png);
+    opacity:1;
+    background-size:330px 30px;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   10. Media Queries - Smaller than 900px
+   ========================================================================== */
+
+@media only screen and (max-width: 900px) {
+
+    blockquote {
+        margin-left: 0;
+    }
+
+    /*Head*/
+    .site-head {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: auto;
+        min-height: 240px;
+        padding: 15% 0;
+    }
+
+    .blog-title {
+        font-size: 4rem;
+        letter-spacing: -1px;
+    }
+
+    .blog-description {
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+
+    /* Conteiner end Section general*/
+    .general-cont{
+        max-width:600px;
+        width: 80%;
+    }
+
+    .sez-left{
+        float:left;
+        width:13%;
+
+        text-align:center;
+        height:100%
+    }
+
+    .sez-left-post{
+        padding-top:10%;
+    }
+
+    .sez-right{
+        float:left;
+        width:81%;
+        padding-left:3%;
+    }
+
+    .sez-right-post{
+        padding:10% 3%;
+    }
+
+    .featured .ico-featured {
+        top:15px
+    }
+
+    /* Post */
+    .post {
+        max-width: 600px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .post-image {
+        margin-left: -640px;
+    }
+
+    .date-post {
+        width: 60px;
+    }
+
+    /* Single post */
+    .post-template .post {
+        padding-bottom: 1rem;
+        margin: 40px auto;
+    }
+
+    .post-template .sez-left-post{
+        padding-top:0;
+    }
+
+    .post-template .sez-right-post{
+        padding:0 3%;
+    }
+
+    .single-post-content img {
+        margin: 10px auto;
+    }
+
+    .post-footer{
+        text-align:center;
+        width: 100%;
+    }
+
+    .post-footer .author {
+        margin: 0 0 2rem 0;
+        padding: 0 0 1.6rem 0;
+    }
+
+    .user-image{
+        float:none;
+        margin:-20px auto 20px auto;
+    }
+
+    .info-author{
+        width:100%;
+        display: inline-block;
+    }
+
+    .post-footer .share {
+    position: static;
+    width: auto;
+    }
+
+    /* Page author*/
+    .page-author {
+     max-width: 600px;
+     width: 80%;
+     text-align:center;
+
+    }
+
+    .page-author .info-author{
+        float:none;
+        width:100%;
+    }
+
+
+    /* Related post */
+    .related {
+        max-width: 600px;
+        width: 80%;
+    }
+
+    .post-related .sez-left-post {
+    padding-top: 7%;
+    }
+
+    .post-related .sez-right-post {
+    padding: 8% 3%;
+    }
+
+    .tit-related {
+        margin-left: 16%;
+    }
+
+    .post-related article{
+    margin: 0 auto;
+    }
+
+    .subscribe {
+        margin-left: 0;
+        left:18%;
+    }
+
+    /* Pagination */
+    .pagination {
+        max-width:600px;
+        width: 80%;
+    }
+
+    .pagination a {
+        margin-left: 16%;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+    }
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    h4 {
+        font-size: 2.5rem;
+    }
+
+    h5 {
+        font-size: 2rem;
+    }
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   11. Media Queries - Smaller than 500px
+   ========================================================================== */
+
+
+@media only screen and (max-width: 500px) {
+
+    /* Icons */
+
+    .ico-w-facebook{
+        background-position:0;
+    }
+
+    .ico-w-twitter{
+        background-position:-20px 0;
+    }
+
+    .ico-w-instagram{
+        background-position:-40px 0;
+    }
+
+    .ico-w-gplus{
+        background-position:-60px 0;
+    }
+
+    .ico-w-linkedin{
+        background-position:-80px 0;
+    }
+
+    .ico-w-youtube{
+        background-position:-100px 0;
+    }
+
+    .ico-w-pinterest{
+        background-position:-120px 0;
+    }
+
+    .ico-w-behance{
+        background-position:-140px 0;
+    }
+
+    .ico-w-dribbble{
+        background-position:-160px 0;
+    }
+
+    .ico-w-flickr {
+        background-position:-180px 0;
+    }
+    .ico-w-github {
+        background-position:-200px 0;
+    }
+
+    /*Social head*/
+    .head-social a{
+    width:20px;
+    height:20px;
+    margin:0 1px;
+    background-size:220px 20px;
+    }
+
+    .head-social a:hover {
+    background-size:220px 20px;
+    }
+
+    /* Head */
+    .site-head {
+        padding: 10% 0;
+        background-size:auto 400px;
+        background-position: center top;
+    }
+
+    .blog-title {
+        font-size: 2.4rem;
+    }
+
+    .blog-description {
+        font-size: 1.5rem;
+    }
+
+    nav.top-nav {
+        float: left;
+        margin-left: 0;
+        width: 100%
+    }
+
+    nav.top-nav ul {
+        float: left;
+    }
+
+    nav.top-nav ul li a {
+        padding: 12px 8px ;
+    }
+
+    nav.top-nav ul li:first-child a {
+        padding-left: 0;
+    }
+
+    /* Conteiner end Section general*/
+    .general-cont{
+        width: 320px;
+    }
+    .cont-search {
+        width: 100%;
+    }
+
+    .inner, .pagination {
+        width: 300px;
+    }
+
+    .sez-left{
+        float:left;
+        width:22%;
+    }
+
+    .sez-right{
+        float:left;
+        width:67%;
+        padding-left:5%;
+    }
+
+    /* Post */
+    .post {
+        width:320px;
+        font-size: 0.8em;
+        line-height: 1.6em;
+    }
+
+    .post-image {
+        margin-left: -550px;
+    }
+
+    .date-post {
+        width: 53px;
+        line-height: 3.5em;
+    }
+    .date-post .month {
+        font-size: 2.2rem;
+        display: block;
+    }
+
+    .date-post .day {
+        font-size: 2.9rem;
+    }
+
+    .date-post .year {
+        font-size: 1.2rem;
+    }
+
+    .post-info-comment {
+        display:block;
+        width:100%;
+        margin:15px 0 0 0;
+    }
+
+    /* Single post */
+    .post-template .sez-right-post{
+        padding:0 5%;
+    }
+
+    .post-template .post {
+        padding-bottom: 0;
+        margin: 30px auto;
+    }
+
+    .single-post-content {
+        margin-top: 15px;
+    }
+
+    .post-footer {
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .post-footer .author {
+        margin: 0 0 2rem 0;
+        padding: 0 0 1.6rem 0;
+        border-bottom: #EBF2F6 1px dashed;
+    }
+
+    .post-footer .share {
+        position: static;
+        width: auto;
+    }
+
+    .post-footer .share a {
+        margin: 1.4rem 0.8rem 0 0.8rem;
+    }
+
+    /* Page author*/
+    .page-author .author-social a {
+    width: 20px;
+    height: 20px;
+    margin: 0 1px;
+    background-size: 200px 20px;
+
+    }
+
+    .page-author .author-social a:hover {
+        background-size: 200px 20px;
+    }
+
+    /* Related post */
+    .related {
+        width: 300px;
+    }
+
+    .tit-related {
+        margin-left: 30%;
+    }
+
+
+    /* Pagination */
+    .pagination a {
+        font-size: 1.2rem;
+        margin-left: 29%;
+        padding:8px 18px;
+    }
+
+    /*Footer*/
+    .site-footer {
+        font-size: 1.1rem;
+    }
+
+    .footer-social a{
+        width:20px;
+        height:20px;
+        margin:0 1px;
+        background-size:220px 20px;
+    }
+
+    .footer-social a:hover {
+        background-size:220px 20px;
+    }
+
+    .subscribe {
+        margin-left: -138px;
+        left:50%;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2.3rem;
+    }
+
+    h4 {
+        font-size: 1.8rem;
+    }
+
+    h5 {
+        font-size: 1.5rem;
+    }
+
+}
+
+/* ==========================================================================
+   12. Animation
+   ========================================================================== */
+
+.fadeUp{
+    animation-name: fadeUp;
+    -webkit-animation-name: fadeUp;
+
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+
+    animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+
+    visibility: visible !important;
+}
+
+@keyframes fadeUp {
+    0% {
+        transform: translateY(15%);
+        opacity:0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes fadeUp {
+    0% {
+        -webkit-transform: translateY(15%);
+        opacity:0;
+    }
+    100% {
+        -webkit-transform: translateY(0%);
+        opacity:1;
+    }
+}
+
+/* ==========================================================================
+   End of file. Media queries should be the last thing here. Do not add stuff
+   below this point, or it will probably fuck everything up.
+   ========================================================================== */

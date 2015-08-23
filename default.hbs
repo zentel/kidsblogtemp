@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Meta-tags }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    {{! Favicon}}
+    <link rel="shortcut icon" href="{{asset "images/favicon.ico"}}" />
+
+    {{! Import css }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+
+    <!--<link rel="stylesheet" type="text/css" href="{{asset "css/header-full.css"}}" />-->
+    <!--<link rel="stylesheet" type="text/css" href="{{asset "css/header-none.css"}}" />-->
+    <!--<link rel="stylesheet" type="text/css" href="{{asset "css/no-image.css"}}" />-->
+
+    {{! Import Fonts}}
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!--<link rel="stylesheet" type="text/css" href="{{asset "css/font-raleway.css"}}" />
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700' rel='stylesheet' type='text/css'>-->
+
+    <!--<link rel="stylesheet" type="text/css" href="{{asset "css/font-merriweather.css"}}" />
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300italic,300,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>-->
+
+    {{! Ghost automatic output }}
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}" data-disqus='muvolab-pepe'>
+
+    {{{body}}}
+     <footer class="site-footer">
+        <a class="subscribe" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a>
+        <div class="general-cont">
+        <div class="sez-left">
+            <a class="blog-logo" id="blog" href="{{@blog.url}}">
+                {{#if @blog.logo}}<img class="blog-logo-liquirizia" src="{{@blog.logo}}" alt="Blog Logo">{{/if}}
+            </a>
+        </div>
+        <div class="sez-right sez-right-line">
+            <div class="footer-social">
+                {{! Including the social template (partials/social)}}
+                {{> social}}
+            </div>
+
+            <section class="copyright">All content copyright <a href="{{@blog.url}}/">{{@blog.title}}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
+            <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://ghost.org">Ghost</a></section>
+        </div>
+
+        </div>
+    </footer>
+    {{! Ghost outputs important scripts and data with this tag }}
+    {{ghost_foot}}
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/main.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/postHandler.js"}}"></script>
+
+</body>
+</html>

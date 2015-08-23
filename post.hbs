@@ -1,0 +1,132 @@
+{{!< default}}
+{{#post}}
+<div class="site-head-post" {{#if image}}style="background-image: url({{image}})"{{/if}}>
+    <div class="vertical site-head-content inner">
+    </div>
+</div>
+<header class="top-main">
+<main class="site-main">
+    <div class="general-cont">
+        <div class="sez-left">
+            <a class="blog-logo" id="blog" href="{{@blog.url}}">
+                {{#if @blog.logo}}<img src="{{@blog.logo}}" alt="Blog Logo">{{/if}}
+            </a>
+        </div>
+        <div class="sez-right">
+            {{! Including the menu template (partials/menu)}}
+            {{> menu}}
+       </div>
+    </div>
+</main>
+</header>
+
+<div class="content post-template" role="main">
+
+<article class="{{post_class}}" data-postid="{{post.id}}">
+    <span class="ico-featured"></span>
+    <div class="sez-left sez-left-post">
+        <time class="date-post" datetime="{{date format='YYYY-MM-DD'}}">
+            <span class="month">{{date format="MMM"}}</span>
+            <span class="day">{{date format="DD"}}</span>
+            <span class="year">{{date format="YYYY"}}</span>
+        </time>
+    </div>
+
+<div class="sez-right sez-right-post">
+        <header class="post-header">
+            <span class="post-meta">{{tags separator="-"}}</span>
+            <h1 class="post-title">{{{title}}}</h1>
+        </header>
+
+            <section class="single-post-content">
+                {{content}}
+            </section>
+      </div>
+
+      <footer class="post-footer">
+            {{#if author.name}}
+            {{#author}}
+            <section class="author">
+
+                <figure class="user-image">
+                    <div id="user-image" class="img" {{#if image}}style="background-image: url({{image}})"{{/if}}></div>
+                </figure>
+
+                <div class="info-author">
+
+                    <h4><a href="{{url}}">{{name}}</a></h4>
+                    <p>
+                      {{bio}}
+                    </p>
+                </div>
+
+            </section>
+            {{/author}}
+            {{/if}}
+
+            <section class="share">
+
+                <h4>Share</h4>
+
+                 <a class="icon-twitter" href="" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+
+                <a class="icon-facebook" href="" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+
+                <a class="icon-google-plus" href="" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+        </footer>
+    </article>
+
+</div>
+{{/post}}
+
+
+
+<div class='js-related'>
+    <div class="" style="position:relative;overflow:hidden;">
+
+        <div class="related">
+
+
+            <div class="sez-right">
+                <p class="tit-related">Related post</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-related hidden" style="position:relative;overflow:hidden;">
+        <div class="post-image" style="background-image:url();"></div>
+        <article class="post">
+            <div class="sez-left sez-left-post">
+                <time class="date-post" datetime="2014-01-15">
+                    <span class="month"></span>
+                    <span class="day"></span>
+                    <span class="year"></span>
+                </time>
+            </div>
+
+            <div class="sez-right sez-right-post">
+            <header class="post-header">
+                <span class="post-meta"></span>
+                <h4 class="post-title"><a href="#"></a></h2>
+
+            </header>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+<div class="post">{{> comment}}</div>
+
+<nav class="pagination" role="navigation">
+    <div class="sez-right">
+        <a href="#" class="load-more-post">Back to all post</a>
+    </div>
+</nav>

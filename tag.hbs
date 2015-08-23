@@ -1,0 +1,69 @@
+{{!< default}}
+<div class="site-head" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+    <div class="vertical site-head-content inner">
+        <a href="{{@blog.url}}"><h1 class="blog-title">{{@blog.title}}</h1></a>
+        <div class="head-social">
+            {{! Including the social template (partials/social)}}
+            {{> social}}
+        </div>
+    </div>
+</div>
+<header class="top-main">
+<main class="site-main">
+    <div class="general-cont">
+        <div class="sez-left">
+            <a class="blog-logo" id="blog" href="{{@blog.url}}">
+                {{#if @blog.logo}}<img src="{{@blog.logo}}" alt="Blog Logo">{{/if}}
+            </a>
+        </div>
+        <div class="sez-right">
+            {{! Including the menu template (partials/menu)}}
+            {{> menu}}
+       </div>
+    </div>
+</main>
+
+</header>
+<div class="content post-container" role="main">
+{{#foreach posts}}
+<div class="cont-post-article fadeUp">
+
+    <article class="{{post_class}}">
+        <span class="ico-featured"></span>
+
+        <div class="sez-left sez-left-post">
+            <time class="date-post" datetime="{{date format='YYYY-MM-DD'}}">
+                <span class="month">{{date format="MMM"}}</span>
+                <span class="day">{{date format="DD"}}</span>
+                <span class="year">{{date format="YYYY"}}</span>
+            </time>
+        </div>
+
+        <div class="sez-right sez-right-post">
+        <header class="post-header">
+
+            <span class="post-meta">{{tags separator=" - "}}</span>
+            <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p> {{excerpt}}&hellip;</p>
+        </section>
+        <div class="post-info">
+           <a href="{{url}}" class="post-info-more">Read More</a>
+           <a href="{{url}}#disqus_thread" class="post-info-comment"></a>
+        </div>
+        </div>
+        <div class='hidden search-content'>
+            {{excerpt words="999999"}}
+        </div>
+        <ul class='hidden-tag-list'>
+            {{#each tags}}
+                <li>{{name}}</li>
+            {{/each}}
+        </ul>
+    </article>
+</div>
+{{/foreach}}
+</div>
+{{! Including the pagination template (partials/pagination)}}
+    {{pagination}}

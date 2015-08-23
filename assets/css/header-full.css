@@ -1,0 +1,22 @@
+.site-head{
+    background-size:100%;
+    background-attachment: fixed;
+    height:400px;
+    position: relative;
+    display: table;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color:#999;
+    height:100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.site-head + header{
+    margin-top:-40px;
+    background-color:#fff;
+    position:relative;
+}
